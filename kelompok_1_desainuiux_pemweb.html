@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kelompok 1 - Desain UI/UX & Pemrograman Web</title>
+    <style>
+      :root {
+        --bg: #e3f3ff;
+        --surface: #ffffff;
+        --ink: #0b2e44;
+        --muted: #4f6f82;
+        --line: #cfe6ee;
+        --accent: #0a8fb8;
+        --accent-soft: #d8f0f7;
+        --head: #0077b6;
+        --soft: #f2fafc;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          Roboto,
+          sans-serif;
+        background: linear-gradient(180deg, #d6ecff 0%, #eaf6ff 100%);
+        background-attachment: fixed;
+        color: var(--ink);
+        line-height: 1.4;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        background: linear-gradient(#1a86c8 0%, #3aa9dc 55%, #6dd0ee 100%);
+        border-bottom: none;
+        text-align: center;
+        padding: 12px 10px 10px;
+        color: #fff;
+      }
+      .logo {
+        font-size: 1.5rem;
+        line-height: 1.2;
+      }
+      header h1 {
+        font-size: 2rem;
+        letter-spacing: -0.5px;
+        line-height: 1.15;
+      }
+      header p {
+        color: #eaf8ff;
+        font-size: 0.95rem;
+      }
+      header hr {
+        width: 28px;
+        border: 0;
+        border-top: 3px solid var(--accent);
+        border-top-color: #90e0ef;
+        margin: 6px auto 0;
+      }
+
+      main {
+        width: 100%;
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 14px 16px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px 14px;
+      }
+      .intro {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+      .avatar {
+        flex: none;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: var(--accent-soft);
+        display: grid;
+        place-items: center;
+        font-size: 1.3rem;
+      }
+      .intro h2 {
+        font-size: 1.05rem;
+      }
+      .intro p {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .grid {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr 1fr;
+        gap: 12px;
+      }
+      .grid .card {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .member-top {
+        display: flex;
+        gap: 14px;
+      }
+      .foto {
+        flex: none;
+        width: 115px;
+        height: 140px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: var(--soft);
+        display: grid;
+        place-items: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+        overflow: hidden;
+      }
+      .foto img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .info {
+        flex: 1;
+        min-width: 0;
+      }
+      .name-row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 4px;
+      }
+      .name-row h3 {
+        font-size: 1.05rem;
+      }
+      dl {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1px 12px;
+        font-size: 0.85rem;
+      }
+      dt {
+        color: var(--muted);
+      }
+      dd {
+        overflow-wrap: anywhere;
+      }
+
+      .quote {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-top: auto;
+        padding: 8px 10px;
+        background: var(--soft);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+      .member-top {
+        margin-bottom: 10px;
+      }
+      .quote .icon {
+        flex: none;
+        width: 26px;
+        height: 26px;
+        border-radius: 6px;
+        background: var(--line);
+        display: grid;
+        place-items: center;
+        font-size: 0.85rem;
+      }
+
+      footer {
+        background: linear-gradient(#1a86c8, #3aa9dc);
+        color: #eaf8ff;
+        border-top: none;
+        text-align: center;
+        padding: 10px;
+        font-size: 0.85rem;
+      }
+
+      header h1 {
+        text-shadow: 0 0 18px var(--glow);
+      }
+      header hr {
+        box-shadow: 0 0 10px var(--accent);
+      }
+      .card {
+        box-shadow: 0 1px 3px rgba(2, 62, 107, 0.08);
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .grid .card:hover {
+        border-color: var(--accent);
+        box-shadow: 0 4px 14px rgba(10, 143, 184, 0.18);
+      }
+      .avatar {
+        box-shadow: 0 0 12px var(--glow);
+      }
+
+      @media (max-width: 800px) {
+        .grid {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto;
+        }
+        header h1 {
+          font-size: 1.8rem;
+        }
+      }
+      @media (max-width: 420px) {
+        .member-top {
+          flex-direction: column;
+        }
+        .foto {
+          width: 100%;
+          height: 180px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo" aria-hidden="true">👥</div>
+      <h1>Kelompok 1</h1>
+      <p>Desain UI/UX &amp; Pemrograman Web</p>
+      <hr />
+    </header>
+
+    <main>
+      <section class="card intro">
+        <div class="avatar" aria-hidden="true">👥</div>
+        <div>
+          <h2>Intro</h2>
+          <p>
+            Kami adalah Kelompok 1 dari mata kuliah Desain UI/UX &amp;
+            Pemrograman Web. Halaman ini berisi biodata anggota kelompok 1.
+          </p>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <div class="member-top">
+            <div class="foto">
+              <img src="assets/img/afnan.png" alt="Afnan Hanif Khoiruddin" />
+            </div>
+            <div class="info">
+              <div class="name-row">
+                <h3>Afnan Hanif Khoiruddin</h3>
+              </div>
+              <dl>
+                <dt>NIM</dt>
+                <dd>: 0110226168</dd>
+                <dt>Kelas</dt>
+                <dd>: TI01 (Pagi)</dd>
+                <dt>Email</dt>
+                <dd>: afnankhoiruddin@gmail.com</dd>
+                <dt>Domisili</dt>
+                <dd>: Kelapa Dua, Depok</dd>
+                <dt>Hobi</dt>
+                <dd>: Main Game</dd>
+              </dl>
+            </div>
+          </div>
+          <div class="quote">
+            <span class="icon">💬</span
+            ><span>"Living my life in high resolution."</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="member-top">
+            <div class="foto">
+              <img src="assets/img/bakrin.png" alt="Abi Bakrin Lubis" />
+            </div>
+            <div class="info">
+              <div class="name-row">
+                <h3>Abi Bakrin Lubis</h3>
+              </div>
+              <dl>
+                <dt>NIM</dt>
+                <dd>: 0110226144</dd>
+                <dt>Kelas</dt>
+                <dd>: TI01 (Pagi)</dd>
+                <dt>Email</dt>
+                <dd>: abibakrimlubis@gmail.com</dd>
+                <dt>Domisili</dt>
+                <dd>: Srengseng Sawah, Jagakarsa</dd>
+                <dt>Hobi</dt>
+                <dd>: Sepak Bola</dd>
+              </dl>
+            </div>
+          </div>
+          <div class="quote">
+            <span class="icon">💬</span
+            ><span>"You can if you think you can."</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="member-top">
+            <div class="foto">
+              <img src="assets/img/adam.png " alt="Adam Pandhita" />
+            </div>
+            <div class="info">
+              <div class="name-row">
+                <h3>Adam Pandhita</h3>
+              </div>
+              <dl>
+                <dt>NIM</dt>
+                <dd>: 0110226179</dd>
+                <dt>Kelas</dt>
+                <dd>: TI01 (Pagi)</dd>
+                <dt>Email</dt>
+                <dd>: adampandhita7@gmail.com</dd>
+                <dt>Domisili</dt>
+                <dd>: Tajurhalang, Bogor</dd>
+                <dt>Hobi</dt>
+                <dd>: Berenang</dd>
+              </dl>
+            </div>
+          </div>
+          <div class="quote">
+            <span class="icon">💬</span><span>"Be better than yesterday."</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="member-top">
+            <div class="foto">
+              <img src="assets/img/abwan.jpeg" alt="Abwan Kurnia Harahap" />
+            </div>
+            <div class="info">
+              <div class="name-row">
+                <h3>Abwan Kurnia Harahap</h3>
+              </div>
+              <dl>
+                <dt>NIM</dt>
+                <dd>: 0110226169</dd>
+                <dt>Kelas</dt>
+                <dd>: TI01 (Pagi)</dd>
+                <dt>Email</dt>
+                <dd>: abwankurnia25@Gmail.com</dd>
+                <dt>Domisili</dt>
+                <dd>: Srengseng Sawah, Jagakarsa</dd>
+                <dt>Hobi</dt>
+                <dd>: Melukis</dd>
+              </dl>
+            </div>
+          </div>
+          <div class="quote">
+            <span class="icon">💬</span
+            ><span
+              >"Guided by patience, defined by precision, committed to
+              excellence."</span
+            >
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      &copy; 2026 Afnan &ndash; Kelompok 1 &ndash; Desain UI/UX &amp;
+      Pemrograman Web
+    </footer>
+  </body>
+</html>
