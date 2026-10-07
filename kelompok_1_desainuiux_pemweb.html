@@ -82,6 +82,12 @@
         border-radius: 12px;
         padding: 12px 14px;
       }
+      .card:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+        max-width: calc(50% - 0.5rem);
+        width: 100%;
+      }
       .intro {
         display: flex;
         gap: 14px;
@@ -128,8 +134,9 @@
         border-radius: 8px;
         border: 1px solid var(--line);
         background: var(--soft);
-        display: grid;
-        place-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         color: var(--muted);
         font-size: 0.9rem;
         overflow: hidden;
@@ -138,6 +145,11 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+      .pos-top {
+        object-position: top center !important;
       }
       .info {
         flex: 1;
@@ -230,6 +242,41 @@
           font-size: 1.8rem;
         }
       }
+      @media (max-width: 768px) {
+        .card:last-child {
+          max-width: 100%;
+        }
+      }
+      @media (max-width: 576px) {
+        .member-top {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 12px;
+        }
+        .foto {
+          width: 140px !important;
+          height: 160px !important;
+          flex: none;
+        }
+        .foto img {
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover;
+        }
+        .info {
+          width: 100%;
+          text-align: left;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .card:last-child {
+          max-width: 100% !important;
+          width: 100%;
+        }
+      }
       @media (max-width: 420px) {
         .member-top {
           flex-direction: column;
@@ -265,7 +312,11 @@
         <article class="card">
           <div class="member-top">
             <div class="foto">
-              <img src="assets/img/afnan.png" alt="Afnan Hanif Khoiruddin" />
+              <img
+                src="assets/img/afnan.png"
+                class="pos-top"
+                alt="Afnan Hanif Khoiruddin"
+              />
             </div>
             <div class="info">
               <div class="name-row">
@@ -294,7 +345,11 @@
         <article class="card">
           <div class="member-top">
             <div class="foto">
-              <img src="assets/img/bakrin.png" alt="Abi Bakrin Lubis" />
+              <img
+                src="assets/img/bakrin.png"
+                class="pos-top"
+                alt="Abi Bakrin Lubis"
+              />
             </div>
             <div class="info">
               <div class="name-row">
@@ -377,6 +432,37 @@
               >"Guided by patience, defined by precision, committed to
               excellence."</span
             >
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="member-top">
+            <div class="foto">
+              <img
+                src="assets/img/shiddiq.png"
+                alt="Abdullah Muhammad Ash Shiddiq"
+              />
+            </div>
+            <div class="info">
+              <div class="name-row">
+                <h3>Abdullah Muhammad Ash Shiddiq</h3>
+              </div>
+              <dl>
+                <dt>NIM</dt>
+                <dd>: 0110226105</dd>
+                <dt>Kelas</dt>
+                <dd>: TI01 (Pagi)</dd>
+                <dt>Email</dt>
+                <dd>: ashshiddiq1910@gmail.com</dd>
+                <dt>Domisili</dt>
+                <dd>: Halim, Jakarta Timur</dd>
+                <dt>Hobi</dt>
+                <dd>: Futsal</dd>
+              </dl>
+            </div>
+          </div>
+          <div class="quote">
+            <span class="icon">💬</span><span>"Just watch and learn."</span>
           </div>
         </article>
       </section>
