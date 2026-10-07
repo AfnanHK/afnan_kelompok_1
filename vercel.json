@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/kelompok_1_desainuiux_pemweb.html"
-    }
-  ]
-}
